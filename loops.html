@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<head>
+ <title>Minha primeira app Vue</title>
+ <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+ <div id="app">
+   <ol>
+     <li v-for="i in lista">
+       {{ i.text }}
+     </li>
+   </ol>
+ </div>
+
+ <script>
+   var app = new Vue({
+     el: '#app',
+     data:{
+       lista: [
+          { text: 'Aprender JavaScript' },
+          { text: 'Aprender Vue' },
+          { text: 'Criar algo incrível' }
+        ]
+    }
+   })
+ </script>
+</body>
+</html>
