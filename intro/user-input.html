@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<head>
+ <title>Intro: Lidando com entrada do usuário</title>
+ <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+ <div id="app">
+   <p>{{ mensagem }}</p>
+   <!-- DIRETIVA v-on -->
+   <button v-on:click="reverseMessage">Reverter mensagem</button>
+ </div>
+
+ <script>
+   var app = new Vue({
+     el: '#app',
+     data:{
+       mensagem: "Olá, Vue.js!"
+     },
+     methods:{
+       reverseMessage: function(){
+         this.mensagem = this.mensagem.split('').reverse().join('');
+       }
+     }
+   })
+ </script>
+</body>
+</html>

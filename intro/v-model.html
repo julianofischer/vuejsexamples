@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<head>
+  <title>Intro: Lidando com entrada do usuário</title>
+  <style> h1 {text-align: center;}</style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <h1> Aula 03/09/2020 - Frameworks (Vue.js) </h1>
+  <fieldset>
+    <legend>INPUT</legend>
+    <div id="app">
+      <p>{{ mensagem }}</p>
+      <input v-model="mensagem">
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>TEXTAREA</legend>
+    <div id="app2">
+      <span>Mensagem com múltiplas linhas:</span>
+      <p style="white-space: pre-line;">{{ mensagem }}</p>
+      <br>
+      <textarea v-model="mensagem" placeholder="Escreva bastante"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>CHECKBOX</legend>
+    <div id="app3">
+      <input type="checkbox" id="checkbox" v-model="checked">
+      <label for="checkbox">{{ checked }}</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>MÚLTIPLOS CHECKBOXES</legend>
+    <div id="app4">
+      <input type="checkbox" id="dhaniely" value="Dhaniely" v-model="checkedNames">
+      <label for="dhaniely">Dhaniely</label>
+      <input type="checkbox" id="evaldo" value="Evaldo" v-model="checkedNames">
+      <label for="evaldo">Evaldo</label>
+      <input type="checkbox" id="gabriel" value="Gabriel" v-model="checkedNames">
+      <label for="gabriel">Gabriel</label>
+      <input type="checkbox" id="ikaro" value="Íkaro" v-model="checkedNames">
+      <label for="ikaro">Íkaro</label>
+      <input type="checkbox" id="jhoni" value="Jhoni" v-model="checkedNames">
+      <label for="jhoni">Jhoni</label>
+      <input type="checkbox" id="juliano" value="Juliano" v-model="checkedNames">
+      <label for="juliano">Juliano</label>
+      <input type="checkbox" id="manoel" value="Manoel" v-model="checkedNames">
+      <label for="manoel">Manoel</label>
+      <input type="checkbox" id="matheus" value="Matheus" v-model="checkedNames">
+      <label for="matheus">Matheus</label>
+      <input type="checkbox" id="nelson" value="Nelson" v-model="checkedNames">
+      <label for="nelson">Nelson</label>
+      <input type="checkbox" id="rayssa" value="Rayssa" v-model="checkedNames">
+      <label for="rayssa">Rayssa</label>
+      <input type="checkbox" id="wallyson" value="Wallyson" v-model="checkedNames">
+      <label for="wallyson">Wallyson</label>
+      <input type="checkbox" id="willian" value="Willian" v-model="checkedNames">
+      <label for="willian">Willian</label>
+      <br>
+      <span>Nomes assinalados: {{ checkedNames }}</span>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>RADIO</legend>
+    <div id="app5">
+      <input type="radio" id="one" value="Um" v-model="picked">
+      <label for="one">Um</label>
+      <br>
+      <input type="radio" id="two" value="Dois" v-model="picked">
+      <label for="two">Dois</label>
+      <br>
+      <span>Escolhido: {{ picked }}</span>
+    </div>
+  </fieldset>
+
+
+  <fieldset>
+    <legend>SELECT</legend>
+    <div id="app6">
+      <select v-model="selected">
+        <option disabled value="">Escolha um item</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <br>
+      <span>Selecionado: {{ selected }}</span>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>MULTIPLE SELECT</legend>
+    <div id="app7">
+      <select v-model="selected" multiple>
+        <option disabled value="">Escolha um item</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <br>
+      <span>Selecionado: {{ selected }}</span>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>SELECT DINAMICAMENTE RENDERIZADO</legend>
+    <div id="app8">
+      <select v-model="selected">
+        <option disabled value="">Escolha um item</option>
+        <option v-for="option in options" v-bind:value="option.value">{{ option.text }}</option>
+      </select>
+      <br>
+      <span>Selecionado: {{ selected }}</span>
+    </div>
+  </fieldset>
+
+  <script>
+  var app = new Vue({
+    el: '#app',
+    data:{
+      mensagem: "Olá, Vue.js!"
+    }
+  });
+
+  var app2 = new Vue({
+    el: '#app2',
+    data: {mensagem: "Não é nulo!"}
+  });
+
+  var app3 = new Vue({
+    el: '#app3',
+    data: {checked: false}
+  });
+
+  var app4 = new Vue({
+    el: '#app4',
+    data: {checkedNames: []}
+  });
+
+  var app5 = new Vue({
+    el:"#app5",
+    data: {picked: null}
+  });
+
+  var app6 = new Vue({
+    el:"#app6",
+    data: {selected: null}
+  });
+
+  var app7 = new Vue({
+    el:"#app7",
+    data: {selected: []}
+  });
+
+  var app8 = new Vue({
+    el:"#app8",
+    data: {
+      selected: null,
+      options: [
+        {text:'Um', value:'1'},
+        {text:'Dois', value:'2'},
+        {text:'Três', value:'3'},
+        {text:'Quatro', value:'4'}]
+      }
+    });
+    </script>
+  </body>
+  </html>
